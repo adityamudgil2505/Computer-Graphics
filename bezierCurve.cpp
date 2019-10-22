@@ -102,8 +102,6 @@ void myDisplay() {
 }
  
 int main(int argc, char **argv) {
- 
-	printf("Enter (x1, y1, x2, y2,x3,y3,x4,y4)\n");
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(1000, 1000);
