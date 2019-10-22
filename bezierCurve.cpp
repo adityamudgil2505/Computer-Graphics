@@ -1,7 +1,8 @@
 // Writing name in hindi language
-#include <GL/glut.h>
-#include <GL/glu.h>
+#include <GLUT/glut.h>
+//#include <GLUT/glu.h>
 #include <stdio.h>
+#include <iostream>
  
 int x1, y1, x2, y2,x3,y3,x4,y4;
  
@@ -17,16 +18,16 @@ void draw_pixel(int x, int y) {
 	glEnd();
 }
  
-void drawP(int x1, int x2, int y1, int y2)
+void drawLine(int x1, int x2, int y1, int y2)
 {
 	glPointSize(1.0);
 	glColor3f(1,1,1);
 	glBegin(GL_LINES);
 	glVertex2i(x1,y1);
-	glVertex2i(x2,y2);	
+	glVertex2i(x2,y2);
 	glEnd();
 }
-void draw_curve() {	
+void drawCurve() {
 	double u,x,y;
 	draw_pixel(x1, y1);
 	draw_pixel(x4, y4);
@@ -39,43 +40,64 @@ void draw_curve() {
 }
  
 void myDisplay() {
+
+	drawLine(30, 210, 105, 105);	// top horizontal line bar
+
   // 1st character
-	drawP(35, 70, 70, 70);	// middle horizontal line
- 	drawP(30, 180, 105, 105);	// top horizontal line bar
- 	drawP(70, 70, 105, 38);	// vertical line
+	drawLine(35, 70, 70, 70);	// middle horizontal line 	
+ 	drawLine(70, 70, 105, 38);	// vertical line
  	// lower curve
  	x1=30;	y1=50;
 	x2=40;	y2=20;
 	x3=70;	y3=70;
 	x4=30;	y4=70;
-	draw_curve();
+	drawCurve();
 	// upper curve
 	x1=30;	y1=70;
 	x2=70;	y2=70;
 	x3=40;	y3=130;
 	x4=30;	y4=90;
-	draw_curve();
-  drawP(80, 80, 105, 38); // 2nd vertical line
+	drawCurve();
+  drawLine(80, 80, 105, 38); // 2nd vertical line
  
   // 2nd Charcter
-	drawP(90, 90, 105, 38); // 3rd vertical line
+	drawLine(90, 90, 105, 38); // 3rd vertical line
 	x1=90;	y1=105;
 	x2=90;	y2=160;
 	x3=130;	y3=160;
 	x4=130;	y4=105;
-	draw_curve();
-	drawP(130, 130, 105, 80);
+	drawCurve();
+	drawLine(130, 130, 105, 80);
 	x1=130;	y1=80;
 	x2=90;	y2=90;
 	x3=90;	y3=50;
 	x4=130;	y4=50;
-	drawP(130, 130, 50, 38);
-	draw_curve();
+	drawLine(130, 130, 50, 38);
+	drawCurve();
+	
  
- 
-	// 3rd character
-	drawP(10, 180, 50, 38);
-	drawP(180, 200, 50, 50);
+	// 3rd character (Partial character)
+	drawLine(150, 150, 60, 38);
+	x1=150;	y1=60;
+	x2=150;	y2=70;
+	x3=162;	y3=70;
+	x4=172;	y4=70;
+	drawCurve();
+	drawLine(172, 160, 70, 70);
+
+	// 4th character
+	x1=160;	y1=95;
+	x2=160;	y2=110;
+	x3=170;	y3=110;
+	x4=170;	y4=85;
+	drawCurve();
+	x1=170;	y1=85;
+	x2=170;	y2=60;
+	x3=190;	y3=60;
+	x4=190;	y4=95;
+	drawCurve();
+	drawLine(190, 190, 105, 38);
+	drawLine(200, 200, 105, 38);
 	glFlush();
 }
  
