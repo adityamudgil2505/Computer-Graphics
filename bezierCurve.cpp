@@ -13,6 +13,7 @@ void myInit(void)
 }
  
 void draw_pixel(int x, int y) {
+	glPointSize(2.0);
 	glBegin(GL_POINTS);
 	glVertex2i(x, y);
 	glEnd();
@@ -20,7 +21,7 @@ void draw_pixel(int x, int y) {
  
 void drawLine(int x1, int x2, int y1, int y2)
 {
-	glPointSize(1.0);
+	glPointSize(2.0);
 	glColor3f(1,1,1);
 	glBegin(GL_LINES);
 	glVertex2i(x1,y1);
@@ -111,3 +112,5 @@ int main(int argc, char **argv) {
 	glutDisplayFunc(myDisplay);
 	glutMainLoop();
 }
+// g++ bezierCurve.cpp -framework OpenGL -framework GLUT
+// ./a.out
